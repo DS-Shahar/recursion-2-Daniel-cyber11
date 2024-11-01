@@ -1,0 +1,108 @@
+
+	//16
+	public static int fact16(int[]arr,int num, int i) {
+		if(i<0) {
+			return -1;}
+
+		if(arr[i]==num) {
+ 
+			return i;
+		}
+		return fact16(arr,num ,i-1);
+
+	}
+	
+	//17
+	
+	public static boolean fact17(int[]arr, int i) {
+		if(i<0) {
+			return true;}
+
+		if(arr[i]>arr[i+1]) {
+ 
+			return false;
+		}
+		return fact17(arr ,i-1);
+
+	}
+		
+	//18
+	public static boolean fact18(int[]arr, int index) {
+		if(index<0) {
+			return true;
+		}
+		 if (fact9(arr[index], arr[index] - 1)) {
+		        return false; // מצאנו מספר ראשוני, מחזירים false
+		    }
+		 return fact18(arr, index - 1);
+	
+	}
+	
+	
+//	//19
+//		public static int fact19(int[][]arr, int index,int num) {
+//			int i=0;
+//			if(i<=index) {
+//				if(containsInRow(arr[index],num)==true) {
+//					 return fact19 ( arr,i + 1, num)+1;
+//
+//				}
+//			}
+//			 return fact19 (arr, i + 1,num);
+//
+//				
+//
+//		}
+//		
+//		
+//		private static boolean containsInRow(int[] row, int num) {
+//		    int index=0;
+//		    if(index<=row.length-1) {
+//		    	if(row[index]==num) {
+//		    		return true;
+//		    	}
+//		    }
+//			 return containsInRow (row, index + 1);
+//
+//		}
+//		
+		
+		
+	    public static boolean fact20(int[] arr) {
+	    	int index1 = (int)(Math.random() * arr.length);
+	        int index2 = (int)(Math.random() * arr.length);
+	       
+	        while (index1 == index2) {
+	            index2 = (int)(Math.random() * arr.length);
+	        }
+	        
+	        if(index1>index2) {
+	        	   int temp = index1;
+	               index1 = index2;
+	               index2 = temp;
+	           }
+	        
+	        if(isPalindrome(arr,index1,index2)==true) {
+	        	return true;
+	        }
+	        return false;
+	        	
+	        	
+
+	        
+	        }
+
+	    // פונקציה רקורסיבית לבדיקת פלינדרום בין שני אינדקסים
+	    private static boolean isPalindrome(int[] arr, int left, int right) {
+	        // תנאי עצירה: אם הגענו לאמצע
+	        if (left >= right) {
+	            return true;
+	        }
+	        // אם הערכים בקצוות אינם שווים, זה לא פלינדרום
+	        if (arr[left] != arr[right]) {
+	            return false;
+	        }
+	        // קריאה רקורסיבית עם צמצום התחום
+	        return isPalindrome(arr, left + 1, right - 1);
+	    }
+
